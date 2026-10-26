@@ -8,8 +8,8 @@ Personal AI & Software Engineering portfolio website showcasing my featured proj
 
 ## 🚀 Featured Repositories
 
-1. **[City Pulse](https://github.com/abhinavnnl29-design/cityplus)** — AI Mobile Urban Intelligence Platform (SIH 2026).
-2. **[Network Security](https://github.com/abhinavnnl29-design/network)** — Production ML phishing detection pipeline with MLflow tracking.
+1. **[City Plus](https://github.com/abhinavnnl29-design/cityplus)** — AI Mobile Urban Intelligence Platform (SIH 2026).
+2. **[Network ](https://github.com/abhinavnnl29-design/network)** — Production ML phishing detection pipeline with MLflow tracking.
 3. **[Quiz](https://github.com/abhinavnnl29-design/Quiz)** — Interactive Code With AI Quiz application.
 4. **[Code Correction](https://github.com/abhinavnnl29-design/Code_correction)** — Python student utility suite and RED -> FIX -> GREEN debugging cycle.
 5. **[Factorial Calculator](https://github.com/abhinavnnl29-design/Factorial-code)** — Clean Python mathematical implementation and fact-check audit.
