@@ -1,473 +1,1276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Abhinav | AI & Software Engineer</title>
-<meta name="description" content="Abhinav, a computer science student building intelligent urban systems, machine learning pipelines, and interactive web tools." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet" />
-<style>
-:root{
-  --bg:#f7f8fb; --surface:#ffffff; --ink:#0b1f3a; --muted:#52627d; --line:#d9dfeb;
-  --blue:#1e4d8c; --gold:#b8921a; --gold-soft:#f3e9c4;
-  --serif:"DM Serif Display",Georgia,serif; --sans:"DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
-}
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){--bg:#0a1424;--surface:#101d33;--ink:#eef2f9;--muted:#9fb0cc;--line:#22314d;--blue:#7fb0ee;--gold:#e0b93d;--gold-soft:#2a2410}
-}
-:root[data-theme="dark"]{--bg:#0a1424;--surface:#101d33;--ink:#eef2f9;--muted:#9fb0cc;--line:#22314d;--blue:#7fb0ee;--gold:#e0b93d;--gold-soft:#2a2410}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:5rem}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.65 var(--sans)}
-a{color:var(--blue)}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
-.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
-.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.skip-link{position:absolute;left:-999px;top:0;background:var(--ink);color:var(--bg);padding:.6rem 1rem;z-index:20}
-.skip-link:focus{left:1rem;top:1rem}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Abhinav's academic portfolio featuring education, technical skills, projects and contact information.">
+  <title>Abhinav | Student Developer Portfolio</title>
 
-/* header */
-.site-header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.header-inner{display:flex;align-items:center;gap:1.5rem;height:4rem}
-.brand{font:700 1.15rem var(--sans);color:var(--ink);text-decoration:none;margin-right:auto}
-.site-nav ul{display:flex;gap:1.5rem;list-style:none;margin:0;padding:0}
-.site-nav a{color:var(--muted);text-decoration:none;font-weight:500}
-.site-nav a:hover{color:var(--ink)}
-.theme-toggle{font:500 .9rem var(--sans);color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.4rem .9rem;cursor:pointer}
-.theme-toggle:hover{border-color:var(--gold)}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-/* hero */
-.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:4rem;align-items:center;padding:6rem 0 5rem}
-h1{font:400 clamp(2.3rem,5vw,3.8rem)/1.1 var(--serif);margin:0 0 1.25rem;letter-spacing:-.01em}
-.hero-summary{max-width:34rem;color:var(--muted);font-size:1.15rem;margin:0 0 2rem}
-.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:.8rem 1.4rem;border-radius:8px;font-weight:700;text-decoration:none;transition:background 0.2s}
-.btn:hover{background:var(--blue);color:#fff}
-.text-link{margin-left:1.25rem;font-weight:500}
-.pipeline{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.5rem 1.5rem 1.25rem}
-.pipeline h2{font:700 .95rem var(--sans);margin:0 0 .25rem}
-.pipeline > p{margin:0 0 1.25rem;color:var(--muted);font-size:.95rem}
-.stages{list-style:none;margin:0;padding:0;position:relative}
-.stages::before{content:"";position:absolute;left:.62rem;top:.8rem;bottom:.8rem;width:2px;background:var(--line)}
-.stages li{position:relative;padding:.35rem 0 .35rem 2.1rem;font-weight:500}
-.stages li::before{content:"";position:absolute;left:.25rem;top:.85rem;width:.8rem;height:.8rem;border-radius:50%;background:var(--surface);border:2px solid var(--blue)}
-.stages li:last-child::before{background:var(--gold);border-color:var(--gold)}
-.stages small{display:block;color:var(--muted);font-weight:400;font-size:.88rem}
-
-/* sections */
-section{padding:4.5rem 0;border-top:1px solid var(--line)}
-h2.sec{font:400 2rem/1.15 var(--serif);margin:0 0 1.5rem}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
-.about p{margin:0 0 1rem;max-width:34rem}
-.skills{display:flex;flex-wrap:wrap;gap:.5rem;list-style:none;margin:0;padding:0}
-.skills li{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:.3rem .85rem;font-size:.95rem}
-h3.sub{font:700 1rem var(--sans);margin:0 0 .75rem}
-
-/* projects */
-.controls{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:1.25rem}
-.controls input,.controls select{font:inherit;font-size:1rem;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem .85rem}
-.controls input{flex:1;min-width:14rem}
-.clear{font:inherit;background:none;border:0;color:var(--blue);cursor:pointer;text-decoration:underline}
-.count{margin:0 0 0 auto;color:var(--muted);font-size:.95rem}
-.projects{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.project{display:grid;grid-template-columns:3rem 1fr auto;gap:1rem 1.5rem;align-items:baseline;padding:1.4rem .5rem;border-bottom:1px solid var(--line);transition:background 0.15s}
-.project:hover{background:var(--surface)}
-.project .n{color:var(--gold);font:700 .95rem var(--sans)}
-.project h3{margin:0;font:400 1.45rem/1.25 var(--serif)}
-.project h3 a{color:var(--ink);text-decoration:none}
-.project h3 a:hover{color:var(--blue);text-decoration:underline}
-.project p{grid-column:2;margin:.25rem 0 0;color:var(--muted)}
-.tech{grid-row:1;grid-column:3;background:var(--gold-soft);color:var(--ink);border-radius:6px;padding:.15rem .6rem;font-size:.85rem;font-weight:500;white-space:nowrap}
-.empty{padding:2rem 0;color:var(--muted)}
-
-/* interactive panels (chat & weather) */
-.interactive-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch}
-.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
-.panel-head{padding:.9rem 1.2rem;border-bottom:1px solid var(--line);font-weight:700}
-.panel-head span{display:block;font-weight:400;color:var(--muted);font-size:.88rem}
-#chatMessages{height:16.5rem;overflow-y:auto;padding:1rem 1.2rem;display:flex;flex-direction:column;gap:.6rem}
-.msg{max-width:85%;padding:.6rem .9rem;border-radius:12px;overflow-wrap:anywhere}
-.msg.bot{background:var(--bg);border:1px solid var(--line)}
-.msg.me{align-self:flex-end;background:var(--ink);color:var(--bg)}
-.prompts{display:flex;gap:.5rem;padding:0 1.2rem .8rem;flex-wrap:wrap}
-.prompts button{font:inherit;font-size:.88rem;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:.25rem .75rem;cursor:pointer;transition:border-color 0.15s, background 0.15s}
-.prompts button:hover{border-color:var(--gold);background:var(--surface)}
-.tool-form{display:flex;gap:.5rem;padding:.9rem 1.2rem;border-top:1px solid var(--line);margin-top:auto}
-.tool-form input{flex:1;min-width:0;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.6rem .8rem}
-.tool-form button{font:700 1rem var(--sans);color:var(--bg);background:var(--ink);border:0;border-radius:8px;padding:0 1.15rem;cursor:pointer;transition:background 0.2s}
-.tool-form button:hover{background:var(--blue)}
-
-/* weather widget specific */
-.weather-body{height:16.5rem;overflow-y:auto;padding:1.2rem;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
-.weather-placeholder{color:var(--muted);font-size:.95rem;line-height:1.5;max-width:22rem;margin:auto 0}
-.weather-result{width:100%;text-align:left;display:flex;flex-direction:column;gap:.8rem;animation:fadeIn 0.25s ease-in}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
-.weather-top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
-.weather-city{font:700 1.25rem var(--sans);color:var(--ink);margin:0}
-.weather-badge{background:var(--gold-soft);color:var(--ink);border-radius:999px;padding:.25rem .75rem;font-size:.85rem;font-weight:600;white-space:nowrap}
-.weather-temp-block{display:flex;align-items:baseline;gap:1rem}
-.weather-temp{font:400 3rem/1 var(--serif);color:var(--ink)}
-.weather-temp-sub{font-size:.9rem;color:var(--muted);line-height:1.4}
-.weather-details{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.25rem}
-.weather-chip{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:.5rem .75rem;font-size:.82rem;color:var(--muted)}
-.weather-chip strong{display:block;color:var(--ink);font-size:1rem;margin-top:.15rem}
-
-footer{border-top:1px solid var(--line);padding:2rem 0}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.95rem}
-
-@media (max-width:58rem){
-  .hero,.about,.interactive-grid{grid-template-columns:1fr;gap:2.5rem}
-  .hero{padding:3.5rem 0}
-  .site-nav{display:none}
-  .project{grid-template-columns:2.2rem 1fr}
-  .tech{grid-row:auto;grid-column:2;justify-self:start}
-}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-</style>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-
-<header class="site-header">
-  <div class="wrap header-inner">
-    <a class="brand" href="#top">Abhinav</a>
-    <nav class="site-nav" aria-label="Primary">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#interactive">Ask & Weather</a></li>
-        <li><a href="https://github.com/abhinavnnl29-design" target="_blank" rel="noopener noreferrer">GitHub</a></li>
-      </ul>
-    </nav>
-    <button id="themeToggle" class="theme-toggle" type="button" aria-pressed="false">Dark theme</button>
-  </div>
-</header>
-
-<main id="main" class="wrap">
-  <div id="top" class="hero">
-    <div>
-      <h1>I build intelligent software systems and machine learning pipelines.</h1>
-      <p class="hero-summary">I’m Abhinav, a computer science student specializing in AI, ML, and scalable software systems. I build end-to-end applications that solve real-world problems.</p>
-      <a class="btn" href="#projects">View projects</a>
-      <a class="text-link" href="https://github.com/abhinavnnl29-design" target="_blank" rel="noopener noreferrer">GitHub profile</a>
-    </div>
-    <aside class="pipeline" aria-labelledby="pl-title">
-      <h2 id="pl-title">Currently building</h2>
-      <p>Network Security ML Pipeline & Urban Intelligence platform.</p>
-      <ol class="stages">
-        <li>Data ingestion<small>MongoDB to train/test datasets</small></li>
-        <li>Data validation<small>Automated schema and column verification</small></li>
-        <li>Data transformation<small>KNN feature imputation & preprocessing</small></li>
-        <li>Model training<small>Multi-model comparison tracked with MLflow</small></li>
-      </ol>
-    </aside>
-  </div>
-
-  <section id="about">
-    <div class="about">
-      <div>
-        <h2 class="sec">About</h2>
-        <p>I’m studying Computer Science and Engineering with a specialization in Artificial Intelligence and Machine Learning (Roll No: 25BCON1116).</p>
-        <p>My work combines applied machine learning, backend engineering, and algorithmic problem solving with clean architecture and automated testing.</p>
-      </div>
-      <div>
-        <h3 class="sub">Technologies & Skills</h3>
-        <ul class="skills">
-          <li>Python</li><li>JavaScript</li><li>Node.js</li><li>Express.js</li>
-          <li>Machine Learning</li><li>MLOps</li><li>NumPy</li><li>Pandas</li>
-          <li>MongoDB</li><li>SQL</li><li>HTML5 / CSS3</li><li>Git & GitHub</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2 class="sec">Projects</h2>
-    <div class="controls">
-      <label class="visually-hidden" for="projectSearch">Search projects</label>
-      <input id="projectSearch" type="search" placeholder="Search by project or technology" autocomplete="off" />
-      <label class="visually-hidden" for="technologyFilter">Filter by technology</label>
-      <select id="technologyFilter"><option value="all">All technologies</option></select>
-      <button id="clearFilters" class="clear" type="button" hidden>Clear</button>
-      <p id="projectCount" class="count" aria-live="polite"></p>
-    </div>
-    <ul class="projects" id="projectList">
-      <li class="project" data-technologies="JavaScript, Express, IoT">
-        <span class="n">01</span>
-        <h3><a href="https://github.com/abhinavnnl29-design/cityplus" target="_blank" rel="noopener noreferrer">City Pulse — Urban Intelligence Platform</a></h3>
-        <span class="tech">JavaScript, Express</span>
-        <p>Mobile urban intelligence platform analyzing road surface quality, pothole hazards, and fleet telemetry (Jaipur JCTSL Bus Fleet).</p>
-      </li>
-      <li class="project" data-technologies="Python, Machine Learning, MLOps">
-        <span class="n">02</span>
-        <h3><a href="https://github.com/abhinavnnl29-design/network" target="_blank" rel="noopener noreferrer">Network Security — ML Phishing Detection</a></h3>
-        <span class="tech">Python, MLOps</span>
-        <p>End-to-end production ML pipeline to detect network security phishing threats, complete with DagsHub and MLflow experiment tracking.</p>
-      </li>
-      <li class="project" data-technologies="JavaScript, HTML, CSS">
-        <span class="n">03</span>
-        <h3><a href="https://github.com/abhinavnnl29-design/Quiz" target="_blank" rel="noopener noreferrer">Code With AI Quiz Application</a></h3>
-        <span class="tech">JavaScript, CSS</span>
-        <p>Interactive web quiz application featuring dynamic question rendering, immediate scoring feedback, and modern responsive UI styling.</p>
-      </li>
-      <li class="project" data-technologies="Python, Testing">
-        <span class="n">04</span>
-        <h3><a href="https://github.com/abhinavnnl29-design/Code_correction" target="_blank" rel="noopener noreferrer">Student Utilities & Debugging Suite</a></h3>
-        <span class="tech">Python</span>
-        <p>Student grade calculation utilities and unit testing exercise demonstrating the disciplined RED -> FIX -> GREEN test cycle.</p>
-      </li>
-      <li class="project" data-technologies="Python">
-        <span class="n">05</span>
-        <h3><a href="https://github.com/abhinavnnl29-design/Factorial-code" target="_blank" rel="noopener noreferrer">Factorial Calculator & Verification Audit</a></h3>
-        <span class="tech">Python</span>
-        <p>Clean Python mathematical application paired with an empirical fact-check audit verifying claims against actual code behavior.</p>
-      </li>
-    </ul>
-    <p id="noProjects" class="empty" hidden>No projects match. Try another name or technology, or clear the filters.</p>
-  </section>
-
-  <!-- Interactive Section: Assistant + Weather Forecaster -->
-  <section id="interactive">
-    <div style="margin-bottom: 2rem;">
-      <h2 class="sec">Interactive Assistant & Weather Forecaster</h2>
-      <p>Ask about my projects and technical background, or check live weather forecasts for any city worldwide.</p>
-    </div>
-    <div class="interactive-grid">
-      
-      <!-- Panel 1: Chatbot Assistant -->
-      <div class="panel">
-        <div class="panel-head">Abhinav’s Assistant<span>Answers from this portfolio</span></div>
-        <div id="chatMessages" aria-live="polite" aria-label="Chat conversation">
-          <p class="msg bot">Hi! What would you like to know about Abhinav’s work and projects?</p>
-        </div>
-        <div class="prompts" role="group" aria-label="Suggested questions">
-          <button type="button" data-prompt="What projects have you built?">Projects</button>
-          <button type="button" data-prompt="What technologies do you use?">Technologies</button>
-          <button type="button" data-prompt="Where can I see your GitHub?">GitHub</button>
-          <button type="button" data-prompt="Tell me about the weather forecaster">Weather Tool</button>
-        </div>
-        <form id="chatForm" class="tool-form">
-          <label class="visually-hidden" for="chatInput">Your message</label>
-          <input id="chatInput" type="text" placeholder="Write a message..." maxlength="500" autocomplete="off" required />
-          <button type="submit">Send</button>
-        </form>
-      </div>
-
-      <!-- Panel 2: Weather Forecaster -->
-      <div class="panel">
-        <div class="panel-head">Live Weather Forecaster<span>Real-time weather for any city</span></div>
-        <div id="weatherBody" class="weather-body" aria-live="polite">
-          <p class="weather-placeholder">🌍 <strong>Which city?</strong><br>Enter any city name below to see current temperature, weather conditions, and forecast.</p>
-        </div>
-        <div class="prompts" role="group" aria-label="Popular quick cities">
-          <button type="button" class="weather-quick" data-city="Jaipur">Jaipur</button>
-          <button type="button" class="weather-quick" data-city="Delhi">Delhi</button>
-          <button type="button" class="weather-quick" data-city="Mumbai">Mumbai</button>
-          <button type="button" class="weather-quick" data-city="Bengaluru">Bengaluru</button>
-          <button type="button" class="weather-quick" data-city="London">London</button>
-          <button type="button" class="weather-quick" data-city="Tokyo">Tokyo</button>
-        </div>
-        <form id="weatherForm" class="tool-form">
-          <label class="visually-hidden" for="weatherInput">Which city?</label>
-          <input id="weatherInput" type="text" placeholder="Which city? (e.g. Jaipur, London, Tokyo)..." maxlength="100" autocomplete="off" required />
-          <button type="submit">Forecast</button>
-        </form>
-      </div>
-
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>&copy; <span id="year"></span> Abhinav</p>
-    <a href="https://github.com/abhinavnnl29-design" target="_blank" rel="noopener noreferrer">GitHub profile</a>
-  </div>
-</footer>
-
-<script>
-(function () {
-  var $ = function (s) { return document.querySelector(s); };
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  /* theme toggle */
-  var root = document.documentElement, toggle = $("#themeToggle");
-  var dark = matchMedia("(prefers-color-scheme: dark)").matches;
-  function applyTheme(isDark) {
-    root.setAttribute("data-theme", isDark ? "dark" : "light");
-    toggle.textContent = isDark ? "Light theme" : "Dark theme";
-    toggle.setAttribute("aria-pressed", String(isDark));
-    toggle.setAttribute("aria-label", isDark ? "Switch to light theme" : "Switch to dark theme");
-  }
-  applyTheme(dark);
-  toggle.addEventListener("click", function () { dark = !dark; applyTheme(dark); });
-
-  /* search and filter */
-  var cards = Array.prototype.slice.call(document.querySelectorAll(".project"));
-  var search = $("#projectSearch"), select = $("#technologyFilter"), clear = $("#clearFilters");
-  var techs = {};
-  cards.forEach(function (c) {
-    c.dataset.technologies.split(",").forEach(function (t) { techs[t.trim()] = 1; });
-  });
-  Object.keys(techs).sort().forEach(function (t) {
-    var o = document.createElement("option"); o.value = t; o.textContent = t; select.appendChild(o);
-  });
-  function filter() {
-    var q = search.value.trim().toLowerCase(), t = select.value, shown = 0;
-    cards.forEach(function (c) {
-      var text = c.textContent.toLowerCase();
-      var okT = t === "all" || c.dataset.technologies.split(",").map(function(s){return s.trim();}).indexOf(t) > -1;
-      var show = okT && text.indexOf(q) > -1;
-      c.hidden = !show; if (show) shown++;
-    });
-    $("#noProjects").hidden = shown > 0;
-    clear.hidden = !(q || t !== "all");
-    $("#projectCount").textContent = shown + " of " + cards.length + " projects";
-  }
-  search.addEventListener("input", filter);
-  select.addEventListener("change", filter);
-  clear.addEventListener("click", function () { search.value = ""; select.value = "all"; filter(); });
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "/" && !/INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName)) {
-      e.preventDefault(); search.focus();
+  <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: #ffffff;
+      --panel-alt: #f0f4f8;
+      --text: #1e293b;
+      --muted: #526174;
+      --line: #d9e2ec;
+      --accent: #1d4e89;
+      --accent-light: #eaf2fb;
+      --header: rgba(255,255,255,.97);
+      --shadow: 0 5px 22px rgba(15,23,42,.045);
     }
-  });
-  filter();
 
-  /* interactive assistant */
-  var box = $("#chatMessages"), input = $("#chatInput");
-  function add(text, who) {
-    var p = document.createElement("p"); p.className = "msg " + who; p.textContent = text;
-    box.appendChild(p); box.scrollTop = box.scrollHeight;
-  }
-  function answer(q) {
-    q = q.toLowerCase();
-    if (/weather|forecast|climate|temperature|rain|city/.test(q)) {
-      return "You can check real-time weather for any city using the Live Weather Forecaster right next to me! Just enter your city in the input box.";
+    body[data-theme="dark"] {
+      --bg: #111827;
+      --panel: #182235;
+      --panel-alt: #151f31;
+      --text: #f1f5f9;
+      --muted: #bdc8d8;
+      --line: #344155;
+      --accent: #9ab9e2;
+      --accent-light: #243750;
+      --header: rgba(17,24,39,.97);
+      --shadow: 0 5px 22px rgba(0,0,0,.12);
     }
-    if (/project|built|work/.test(q)) {
-      return "Abhinav has built 5 core repositories: 1) City Pulse (AI Urban Intelligence platform), 2) Network Security ML pipeline, 3) Code With AI Quiz app, 4) Student Code Correction & Debugging utility, and 5) Factorial Calculator.";
-    }
-    if (/tech|skill|stack|language|tool/.test(q)) {
-      return "Abhinav's technical stack includes Python, JavaScript, Express.js, Node.js, NumPy, Pandas, MongoDB, SQL, Machine Learning, MLOps (MLflow, DagsHub), and HTML5/CSS3.";
-    }
-    if (/study|background|college|degree|about|student|roll/.test(q)) {
-      return "Abhinav is a Computer Science and Engineering student (Roll No: 25BCON1116) specializing in Artificial Intelligence and Machine Learning.";
-    }
-    if (/github|contact|repo|link/.test(q)) {
-      return "All of Abhinav's code and repositories are available at github.com/abhinavnnl29-design.";
-    }
-    return "I can answer questions regarding Abhinav’s projects, tech stack, academic background, or GitHub repositories. You can also check the weather forecaster next to me!";
-  }
-  function ask(text) {
-    add(text, "me");
-    setTimeout(function () { add(answer(text), "bot"); }, 260);
-  }
-  $("#chatForm").addEventListener("submit", function (e) {
-    e.preventDefault(); var v = input.value.trim(); if (!v) return; input.value = ""; ask(v);
-  });
-  document.querySelectorAll("[data-prompt]").forEach(function (b) {
-    b.addEventListener("click", function () { ask(b.dataset.prompt); });
-  });
 
-  /* Live Weather Forecaster */
-  var weatherBody = $("#weatherBody");
-  var weatherInput = $("#weatherInput");
-  var weatherForm = $("#weatherForm");
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-  var weatherCodes = {
-    0: { desc: "Clear sky", icon: "☀️" },
-    1: { desc: "Mainly clear", icon: "🌤️" },
-    2: { desc: "Partly cloudy", icon: "⛅" },
-    3: { desc: "Overcast", icon: "☁️" },
-    45: { desc: "Fog", icon: "🌫️" },
-    48: { desc: "Depositing rime fog", icon: "🌫️" },
-    51: { desc: "Light drizzle", icon: "🌦️" },
-    53: { desc: "Moderate drizzle", icon: "🌦️" },
-    55: { desc: "Dense drizzle", icon: "🌧️" },
-    61: { desc: "Slight rain", icon: "🌧️" },
-    63: { desc: "Moderate rain", icon: "🌧️" },
-    65: { desc: "Heavy rain", icon: "🌧️" },
-    71: { desc: "Slight snow", icon: "❄️" },
-    73: { desc: "Moderate snow", icon: "❄️" },
-    75: { desc: "Heavy snow", icon: "❄️" },
-    80: { desc: "Rain showers", icon: "🌦️" },
-    81: { desc: "Moderate showers", icon: "🌧️" },
-    82: { desc: "Violent showers", icon: "⛈️" },
-    95: { desc: "Thunderstorm", icon: "⛈️" },
-    96: { desc: "Thunderstorm with hail", icon: "⛈️" },
-    99: { desc: "Heavy thunderstorm with hail", icon: "⛈️" }
-  };
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-  async function fetchWeather(city) {
-    if (!city || !city.trim()) return;
-    city = city.trim();
-    weatherBody.innerHTML = '<p class="weather-placeholder">⏳ Fetching weather for <strong>' + city + '</strong>...</p>';
-    
-    try {
-      var geoUrl = "https://geocoding-api.open-meteo.com/v1/search?name=" + encodeURIComponent(city) + "&count=1&language=en&format=json";
-      var geoRes = await fetch(geoUrl);
-      var geoData = await geoRes.json();
-      
-      if (!geoData.results || geoData.results.length === 0) {
-        weatherBody.innerHTML = '<p class="weather-placeholder" style="color:#d9534f;">❌ City "<strong>' + city + '</strong>" not found.<br>Please check the spelling and try again.</p>';
-        return;
+    body {
+      font-family: "Manrope", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      transition: background .25s, color .25s;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: auto;
+    }
+
+    .mono {
+      font-family: monospace;
+      letter-spacing: .04em;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-family: monospace;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .eyebrow::before {
+      content: "";
+      display: inline-block;
+      width: 23px;
+      height: 1px;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-right: 9px;
+    }
+
+    /* Navigation */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--header);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(15px);
+    }
+
+    .nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: -.04em;
+    }
+
+    .brand-mark {
+      width: 37px;
+      height: 37px;
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      background: var(--accent-light);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+
+    .brand-dot {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      color: var(--muted);
+      font-size: .84rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 9px 13px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      color: var(--accent);
+    }
+
+    .nav-tools {
+      display: flex;
+      gap: 9px;
+      align-items: center;
+    }
+
+    .theme-toggle, .menu-toggle {
+      cursor: pointer;
+      padding: 9px 11px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      background: var(--panel);
+      color: var(--text);
+      font-size: .8rem;
+    }
+
+    .theme-toggle:hover, .menu-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    .menu-toggle {
+      display: none;
+    }
+
+    /* Hero */
+
+    .hero {
+      padding: 100px 0 85px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      margin: 20px 0;
+      font-size: clamp(3.5rem, 8vw, 6.5rem);
+      line-height: 1.03;
+      letter-spacing: -.075em;
+    }
+
+    .hero h1 span {
+      color: var(--accent);
+    }
+
+    .hero-copy {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 17px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      font-size: .85rem;
+      font-weight: 700;
+      transition: background .2s, border-color .2s;
+    }
+
+    .btn-primary {
+      background: #1d4e89;
+      border-color: #1d4e89;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #163b69;
+    }
+
+    .btn-secondary {
+      background: var(--panel);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--accent);
+    }
+
+    .hero-note {
+      margin-top: 35px;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .hero-note span {
+      color: var(--accent);
+      margin-right: 7px;
+    }
+
+    .hero-card {
+      position: relative;
+      min-height: 350px;
+      padding: 25px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font-size: .7rem;
+    }
+
+    .monogram {
+      height: 210px;
+      display: grid;
+      place-items: center;
+    }
+
+    .monogram span {
+      color: var(--accent);
+      font-size: 8rem;
+      line-height: 1;
+      font-weight: 800;
+      letter-spacing: -.1em;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 10px;
+      padding-top: 17px;
+      border-top: 1px solid var(--line);
+    }
+
+    .card-bottom strong {
+      display: block;
+      font-size: .95rem;
+    }
+
+    .card-bottom small {
+      color: var(--muted);
+      font-size: .75rem;
+    }
+
+    .card-index {
+      color: var(--accent);
+      font-size: .7rem;
+    }
+
+    /* Information strip */
+
+    .ticker {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+
+    .ticker-inner {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px 25px;
+      padding: 17px 0;
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    .ticker span::before {
+      content: "•";
+      color: var(--accent);
+      margin-right: 9px;
+    }
+
+    /* Common section styles */
+
+    .content-section {
+      padding: 90px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin-top: 12px;
+      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -.055em;
+    }
+
+    .section-heading h2 span {
+      color: var(--accent);
+    }
+
+    .section-heading p {
+      max-width: 420px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    /* About */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 55px;
+    }
+
+    .about-aside {
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .aside-number {
+      margin-top: 13px;
+      font-size: 2.5rem;
+      color: var(--accent);
+      font-weight: 800;
+    }
+
+    .about-aside p, .about-text p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .about-text p {
+      margin-bottom: 17px;
+    }
+
+    .about-text strong {
+      color: var(--text);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .stat {
+      border-top: 1px solid var(--line);
+      padding-top: 14px;
+    }
+
+    .stat strong {
+      display: block;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: .73rem;
+    }
+
+    /* Skills */
+
+    .skills-section {
+      background: var(--panel-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .skill-card {
+      padding: 24px;
+      min-height: 185px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      transition: border-color .2s;
+    }
+
+    .skill-card:hover {
+      border-color: var(--accent);
+    }
+
+    .skill-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 23px;
+    }
+
+    .skill-icon {
+      display: grid;
+      place-items: center;
+      min-width: 40px;
+      height: 40px;
+      padding: 0 5px;
+      border-radius: 6px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: .82rem;
+      font-weight: 700;
+    }
+
+    .skill-num {
+      color: var(--muted);
+      font-size: .7rem;
+    }
+
+    .skill-card h3 {
+      margin-bottom: 7px;
+      font-size: 1rem;
+    }
+
+    .skill-card p {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .learning-note {
+      margin-top: 20px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .learning-note span {
+      color: var(--accent);
+    }
+
+    /* Education */
+
+    .education-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 25px;
+      padding: 30px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .education-card h3 {
+      margin: 10px 0 6px;
+      font-size: 1.3rem;
+    }
+
+    .education-card p {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .education-badge {
+      align-self: start;
+      padding: 7px 10px;
+      border-radius: 5px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: .72rem;
+    }
+
+    .edu-footer, .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .pill {
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      color: var(--muted);
+      font-size: .72rem;
+    }
+
+    /* Projects */
+
+    .projects-section {
+      background: var(--panel-alt);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 275px;
+      padding: 27px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: border-color .2s;
+    }
+
+    .project-card:hover {
+      border-color: var(--accent);
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--accent);
+      font-size: .75rem;
+    }
+
+    .project-card h3 {
+      margin: 25px 0 9px;
+      font-size: 1.2rem;
+      letter-spacing: -.025em;
+    }
+
+    .project-card p {
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .project-card .pill-row {
+      margin-top: auto;
+    }
+
+    .project-card .btn {
+      align-self: flex-start;
+      margin-top: 22px;
+    }
+
+    /* Contact */
+
+    .contact-panel {
+      padding: clamp(28px, 6vw, 60px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-panel h2 {
+      margin: 15px 0 18px;
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: 1.1;
+      letter-spacing: -.065em;
+    }
+
+    .contact-panel p {
+      max-width: 600px;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    .contact-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      padding-top: 23px;
+      border-top: 1px solid var(--line);
+    }
+
+    .contact-hint {
+      color: var(--muted);
+      font-size: .82rem;
+    }
+
+    .contact-hint a {
+      color: var(--accent);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+
+    footer {
+      padding: 25px 0;
+      background: var(--panel);
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .77rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .back-top {
+      color: var(--accent);
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    /* Responsive design */
+
+    @media (max-width: 850px) {
+      .hero-grid, .about-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
       }
-      
-      var target = geoData.results[0];
-      var name = target.name + (target.country ? ", " + target.country : "");
-      
-      var weatherUrl = "https://api.open-meteo.com/v1/forecast?latitude=" + target.latitude + "&longitude=" + target.longitude + "&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=auto";
-      var weatherRes = await fetch(weatherUrl);
-      var data = await weatherRes.json();
-      
-      var current = data.current;
-      var daily = data.daily;
-      var info = weatherCodes[current.weather_code] || { desc: "Clear", icon: "🌤️" };
-      var maxT = (daily && daily.temperature_2m_max && daily.temperature_2m_max[0] !== undefined) ? Math.round(daily.temperature_2m_max[0]) + "°C" : "—";
-      var minT = (daily && daily.temperature_2m_min && daily.temperature_2m_min[0] !== undefined) ? Math.round(daily.temperature_2m_min[0]) + "°C" : "—";
 
-      weatherBody.innerHTML = 
-        '<div class="weather-result">' +
-          '<div class="weather-top">' +
-            '<h3 class="weather-city">' + name + '</h3>' +
-            '<span class="weather-badge">' + info.icon + ' ' + info.desc + '</span>' +
-          '</div>' +
-          '<div class="weather-temp-block">' +
-            '<div class="weather-temp">' + Math.round(current.temperature_2m) + '°C</div>' +
-            '<div class="weather-temp-sub">' +
-              '<div>Feels like: <strong>' + Math.round(current.apparent_temperature) + '°C</strong></div>' +
-              '<div>High / Low: <strong>' + maxT + ' / ' + minT + '</strong></div>' +
-            '</div>' +
-          '</div>' +
-          '<div class="weather-details">' +
-            '<div class="weather-chip">Humidity<strong>' + current.relative_humidity_2m + '%</strong></div>' +
-            '<div class="weather-chip">Wind Speed<strong>' + Math.round(current.wind_speed_10m) + ' km/h</strong></div>' +
-          '</div>' +
-        '</div>';
-    } catch (err) {
-      weatherBody.innerHTML = '<p class="weather-placeholder" style="color:#d9534f;">⚠️ Unable to retrieve weather data right now. Please try again.</p>';
+      .hero {
+        padding: 75px 0;
+      }
+
+      .hero-card {
+        min-height: 320px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 13px;
+      }
+
+      .nav-links {
+        gap: 13px;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
-  }
 
-  weatherForm.addEventListener("submit", function(e) {
-    e.preventDefault();
-    var val = weatherInput.value;
-    if (!val) return;
-    weatherInput.value = "";
-    fetchWeather(val);
-  });
+    @media (max-width: 620px) {
+      .container {
+        width: calc(100% - 32px);
+      }
 
-  document.querySelectorAll(".weather-quick").forEach(function(btn) {
-    btn.addEventListener("click", function() {
-      fetchWeather(btn.dataset.city);
+      .nav {
+        min-height: 68px;
+      }
+
+      .menu-toggle {
+        display: inline-block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        padding: 15px 20px 22px;
+        background: var(--bg);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 9px 0;
+      }
+
+      .nav-cta {
+        text-align: center;
+      }
+
+      .theme-toggle {
+        padding: 8px;
+        font-size: .73rem;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero h1 {
+        font-size: clamp(3.2rem, 15vw, 5rem);
+      }
+
+      .ticker-inner {
+        justify-content: flex-start;
+      }
+
+      .content-section {
+        padding: 70px 0;
+      }
+
+      .skills-grid, .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .education-card {
+        grid-template-columns: 1fr;
+      }
+
+      .education-badge {
+        grid-row: 1;
+        justify-self: start;
+      }
+
+      .stats {
+        gap: 9px;
+      }
+
+      .stat span {
+        font-size: .68rem;
+      }
+
+      .hero-card {
+        min-height: 290px;
+      }
+
+      .monogram {
+        height: 170px;
+      }
+
+      .monogram span {
+        font-size: 6.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body data-theme="light">
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <span class="brand-mark">A.</span>
+        <span>ABHINAV<span class="brand-dot">.</span></span>
+      </a>
+
+      <div class="nav-tools">
+        <button class="theme-toggle" id="themeToggle" type="button">
+          <span id="themeIcon">☾</span>
+          <span id="themeLabel">Dark mode</span>
+        </button>
+        <button class="menu-toggle" id="menuToggle" type="button"
+          aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
+      </div>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact" class="nav-cta">Contact ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero container" id="home">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">B.Tech Student · Jaipur, India</div>
+          <h1>Learning.<br><span>Building.</span></h1>
+
+          <p class="hero-copy">
+            Hello, I am Abhinav, a B.Tech student at JECRC University.
+            I am developing my programming and web development skills
+            through academic learning, practical exercises, and projects.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#projects" class="btn btn-primary">View Projects ↓</a>
+            <a href="#about" class="btn btn-secondary">About Me →</a>
+          </div>
+
+          <div class="hero-note">
+            <span>●</span> Focused on learning through practical work.
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="card-top mono">
+            <span>STUDENT PORTFOLIO</span>
+            <span>2026</span>
+          </div>
+
+          <div class="monogram"><span>A.</span></div>
+
+          <div class="card-bottom">
+            <div>
+              <strong>Abhinav</strong>
+              <small>B.Tech · JECRC University</small>
+            </div>
+            <span class="card-index mono">PORTFOLIO</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      <div class="ticker-inner container">
+        <span>Programming</span>
+        <span>Web Development</span>
+        <span>Software Projects</span>
+        <span>Technology</span>
+      </div>
+    </div>
+
+    <!-- About -->
+    <section class="content-section container" id="about">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">01 / About Me</div>
+          <h2>Building a foundation<br><span>in technology.</span></h2>
+        </div>
+        <p>
+          An overview of my academic background, technical interests,
+          and ongoing efforts to improve my practical skills.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-aside">
+          <div class="eyebrow">Current Chapter</div>
+          <div class="aside-number">B.Tech</div>
+          <p>
+            Learning programming fundamentals and applying classroom
+            concepts through practice and project work.
+          </p>
+        </div>
+
+        <div class="about-text">
+          <p>
+            I am pursuing my <strong>B.Tech at JECRC University</strong>.
+            My current focus is on strengthening programming fundamentals
+            and understanding how to build clear, responsive web interfaces.
+          </p>
+
+          <p>
+            I am interested in how software and emerging technologies can
+            be applied to practical problems and developed into useful
+            digital products.
+          </p>
+
+          <p>
+            As a student, I aim to keep learning, improve my problem-solving
+            abilities, and gain practical experience by working on projects.
+          </p>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>Programming</strong>
+              <span>Core learning area</span>
+            </div>
+            <div class="stat">
+              <strong>Web</strong>
+              <span>Development interest</span>
+            </div>
+            <div class="stat">
+              <strong>Ongoing</strong>
+              <span>Skill development</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="content-section skills-section" id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">02 / Technical Skills</div>
+            <h2>Skills and<br>learning areas.</h2>
+          </div>
+          <p>
+            These areas represent my current learning toolkit.
+            I am continuing to develop my understanding through coursework
+            and practical exercises.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">C</span>
+              <span class="skill-num mono">01 / LANG</span>
+            </div>
+            <h3>C Programming</h3>
+            <p>Learning core programming concepts, logic, and problem-solving fundamentals.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">C++</span>
+              <span class="skill-num mono">02 / LANG</span>
+            </div>
+            <h3>C++</h3>
+            <p>Developing familiarity with programming structures and object-oriented concepts.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">Py</span>
+              <span class="skill-num mono">03 / LANG</span>
+            </div>
+            <h3>Python</h3>
+            <p>Exploring general-purpose programming and writing readable code.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">&lt;/&gt;</span>
+              <span class="skill-num mono">04 / WEB</span>
+            </div>
+            <h3>HTML</h3>
+            <p>Structuring web pages using clear and semantic markup.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">#</span>
+              <span class="skill-num mono">05 / WEB</span>
+            </div>
+            <h3>CSS</h3>
+            <p>Learning responsive layouts, visual styling, and interface design.</p>
+          </article>
+
+          <article class="skill-card">
+            <div class="skill-top">
+              <span class="skill-icon">Git</span>
+              <span class="skill-num mono">06 / TOOLS</span>
+            </div>
+            <h3>GitHub</h3>
+            <p>Using code repositories to organise, access, and share project work.</p>
+          </article>
+        </div>
+
+        <p class="learning-note">
+          <span>NOTE //</span> This section describes learning areas and
+          does not claim professional mastery.
+        </p>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="content-section container" id="education">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">03 / Education</div>
+          <h2>Academic<br>background.</h2>
+        </div>
+        <p>My current academic programme and institution.</p>
+      </div>
+
+      <article class="education-card">
+        <div>
+          <div class="eyebrow">Undergraduate Studies</div>
+          <h3>Bachelor of Technology (B.Tech)</h3>
+          <p>JECRC University · Jaipur, Rajasthan, India</p>
+
+          <div class="edu-footer">
+            <span class="pill">Undergraduate</span>
+            <span class="pill">Programming</span>
+            <span class="pill">Technology</span>
+          </div>
+        </div>
+
+        <span class="education-badge">CURRENTLY STUDYING</span>
+      </article>
+    </section>
+
+    <!-- Projects -->
+    <section class="content-section projects-section" id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">04 / Selected Work</div>
+            <h2>Academic and<br><span>personal projects.</span></h2>
+          </div>
+          <p>
+            A selection of project repositories. Open the GitHub links
+            to review the source code and available implementation details.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <div class="project-top mono">
+              <span>PROJECT 01</span><span>↗</span>
+            </div>
+            <h3>Network</h3>
+            <p>
+              A programming project repository. Visit GitHub to review
+              its source files and available documentation.
+            </p>
+            <div class="pill-row">
+              <span class="pill">GitHub</span>
+              <span class="pill">Source Code</span>
+            </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/abhinavnnl29-design/network"
+               target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top mono">
+              <span>PROJECT 02</span><span>↗</span>
+            </div>
+            <h3>CityPlus</h3>
+            <p>
+              A project repository. Refer to its source code and
+              repository documentation for implementation details.
+            </p>
+            <div class="pill-row">
+              <span class="pill">GitHub</span>
+              <span class="pill">Project Repository</span>
+            </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/abhinavnnl29-design/cityplus"
+               target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top mono">
+              <span>PROJECT 03</span><span>↗</span>
+            </div>
+            <h3>Code Correction</h3>
+            <p>
+              A programming-related project. Visit the repository
+              to inspect the available implementation.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Programming</span>
+              <span class="pill">GitHub</span>
+            </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/abhinavnnl29-design/Code_correction"
+               target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top mono">
+              <span>PROJECT 04</span><span>↗</span>
+            </div>
+            <h3>Factorial Code</h3>
+            <p>
+              A programming exercise focused on factorial calculation.
+              Review the repository for its source code.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Programming Fundamentals</span>
+            </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/abhinavnnl29-design/Factorial-code"
+               target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+
+          <article class="project-card">
+            <div class="project-top mono">
+              <span>PROJECT 05</span><span>↗</span>
+            </div>
+            <h3>Quiz</h3>
+            <p>
+              A quiz-related project repository. Visit GitHub to
+              review the code and available project files.
+            </p>
+            <div class="pill-row">
+              <span class="pill">Quiz Project</span>
+              <span class="pill">GitHub</span>
+            </div>
+            <a class="btn btn-secondary"
+               href="https://github.com/abhinavnnl29-design/Quiz"
+               target="_blank" rel="noopener noreferrer">
+              View on GitHub ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="content-section container" id="contact">
+      <div class="contact-panel">
+        <div class="eyebrow">05 / Contact</div>
+        <h2>Let's connect<br>professionally.</h2>
+        <p>
+          For academic discussions, project feedback, or technology-related
+          collaboration, feel free to contact me by email.
+        </p>
+
+        <div class="contact-bottom">
+          <div class="contact-hint">
+            Email:
+            <a href="mailto:abhinavnnl29@gmail.com">
+              abhinavnnl29@gmail.com
+            </a>
+          </div>
+
+          <a class="btn btn-primary"
+             href="mailto:abhinavnnl29@gmail.com?subject=Portfolio%20Enquiry">
+            Send Me an Email →
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Abhinav. Student portfolio.</span>
+      <a class="back-top mono" href="#home">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Update copyright year automatically.
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Light and dark theme toggle.
+    const themeToggle = document.getElementById("themeToggle");
+    const themeLabel = document.getElementById("themeLabel");
+    const themeIcon = document.getElementById("themeIcon");
+
+    function applyTheme(theme) {
+      document.body.dataset.theme = theme;
+
+      const isLight = theme === "light";
+      themeLabel.textContent = isLight ? "Dark mode" : "Light mode";
+      themeIcon.textContent = isLight ? "☾" : "☼";
+
+      try {
+        localStorage.setItem("abhinav-portfolio-theme", theme);
+      } catch (error) {
+        // Theme still works if browser storage is unavailable.
+      }
+    }
+
+    let initialTheme = "light";
+
+    try {
+      initialTheme =
+        localStorage.getItem("abhinav-portfolio-theme") || "light";
+    } catch (error) {}
+
+    applyTheme(initialTheme === "dark" ? "dark" : "light");
+
+    themeToggle.addEventListener("click", function () {
+      const nextTheme =
+        document.body.dataset.theme === "dark" ? "light" : "dark";
+
+      applyTheme(nextTheme);
     });
-  });
 
-  // Pre-load default city weather for a lively immediate display
-  fetchWeather("Jaipur");
-})();
-</script>
+    // Mobile navigation menu.
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("open");
+
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "Close ×" : "Menu ☰";
+    });
+
+    // Close mobile navigation after selecting a section.
+    navLinks.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "Menu ☰";
+      });
+    });
+  </script>
+
 </body>
 </html>
