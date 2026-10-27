@@ -1,59 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Abhinav's academic portfolio featuring education, technical skills, projects and contact information.">
-  <title>Abhinav | Student Developer Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <title>Abhinav | Developer Portfolio</title>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
-    :root {
-      --bg: #f8fafc;
-      --panel: #ffffff;
-      --panel-alt: #f0f4f8;
-      --text: #1e293b;
-      --muted: #526174;
-      --line: #d9e2ec;
-      --accent: #1d4e89;
-      --accent-light: #eaf2fb;
-      --header: rgba(255,255,255,.97);
-      --shadow: 0 5px 22px rgba(15,23,42,.045);
-    }
-
-    body[data-theme="dark"] {
-      --bg: #111827;
-      --panel: #182235;
-      --panel-alt: #151f31;
-      --text: #f1f5f9;
-      --muted: #bdc8d8;
-      --line: #344155;
-      --accent: #9ab9e2;
-      --accent-light: #243750;
-      --header: rgba(17,24,39,.97);
-      --shadow: 0 5px 22px rgba(0,0,0,.12);
-    }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: "Manrope", Arial, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.75;
-      transition: background .25s, color .25s;
+      font-family: "Kanit", sans-serif;
+      background: #0c0c0c;
+      color: #d7e2ea;
+      overflow-x: hidden;
     }
 
     a {
@@ -61,1215 +34,933 @@
       text-decoration: none;
     }
 
-    button {
-      font: inherit;
-    }
+    /* ================= NAVBAR ================= */
 
-    .container {
-      width: min(1120px, calc(100% - 40px));
-      margin: auto;
-    }
-
-    .mono {
-      font-family: monospace;
-      letter-spacing: .04em;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-family: monospace;
-      font-size: .78rem;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .eyebrow::before {
-      content: "";
-      display: inline-block;
-      width: 23px;
-      height: 1px;
-      background: var(--accent);
-      vertical-align: middle;
-      margin-right: 9px;
-    }
-
-    /* Navigation */
-
-    .site-header {
-      position: sticky;
+    nav {
+      position: fixed;
       top: 0;
-      z-index: 100;
-      background: var(--header);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(15px);
-    }
-
-    .nav {
-      min-height: 76px;
+      left: 0;
+      width: 100%;
+      padding: 25px 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      z-index: 1000;
+      background: rgba(12, 12, 12, 0.75);
+      backdrop-filter: blur(12px);
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 1rem;
+    .logo {
+      font-size: 1.5rem;
       font-weight: 800;
-      letter-spacing: -.04em;
-    }
-
-    .brand-mark {
-      width: 37px;
-      height: 37px;
-      display: grid;
-      place-items: center;
-      color: var(--accent);
-      background: var(--accent-light);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-    }
-
-    .brand-dot {
-      color: var(--accent);
+      letter-spacing: 2px;
     }
 
     .nav-links {
       display: flex;
-      align-items: center;
-      gap: 25px;
-      color: var(--muted);
-      font-size: .84rem;
+      gap: 35px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-transform: uppercase;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      transition: 0.3s;
     }
 
     .nav-links a:hover {
-      color: var(--accent);
+      opacity: 0.5;
     }
 
-    .nav-cta {
-      padding: 9px 13px;
-      border: 1px solid var(--line);
-      border-radius: 5px;
-      color: var(--accent);
-    }
-
-    .nav-tools {
-      display: flex;
-      gap: 9px;
-      align-items: center;
-    }
-
-    .theme-toggle, .menu-toggle {
-      cursor: pointer;
-      padding: 9px 11px;
-      border: 1px solid var(--line);
-      border-radius: 5px;
-      background: var(--panel);
-      color: var(--text);
-      font-size: .8rem;
-    }
-
-    .theme-toggle:hover, .menu-toggle:hover {
-      border-color: var(--accent);
-    }
-
-    .menu-toggle {
-      display: none;
-    }
-
-    /* Hero */
+    /* ================= HERO ================= */
 
     .hero {
-      padding: 100px 0 85px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 65px;
-      align-items: center;
-    }
-
-    .hero h1 {
-      margin: 20px 0;
-      font-size: clamp(3.5rem, 8vw, 6.5rem);
-      line-height: 1.03;
-      letter-spacing: -.075em;
-    }
-
-    .hero h1 span {
-      color: var(--accent);
-    }
-
-    .hero-copy {
-      max-width: 600px;
-      color: var(--muted);
-      font-size: 1rem;
-    }
-
-    .hero-actions {
+      min-height: 100vh;
+      padding: 130px 6% 50px;
       display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 28px;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
     }
 
-    .btn {
-      display: inline-flex;
+    .small-label {
+      color: #aebbc5;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      animation: fadeUp 1s ease;
+    }
+
+    .hero-title {
+      font-size: clamp(4rem, 14vw, 13rem);
+      line-height: 0.8;
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: -7px;
+
+      background: linear-gradient(
+        180deg,
+        #646973 0%,
+        #bbccd7 100%
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      animation: fadeUp 1s ease 0.2s both;
+    }
+
+    .hero-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      animation: fadeUp 1s ease 0.4s both;
+    }
+
+    .hero-description {
+      max-width: 420px;
+      font-size: 1.2rem;
+      line-height: 1.5;
+      text-transform: uppercase;
+      color: #b9c5cd;
+    }
+
+    .hero-button {
+      padding: 16px 32px;
+      border-radius: 50px;
+      background: linear-gradient(
+        123deg,
+        #18011f,
+        #b600a8,
+        #7621b0,
+        #be4c00
+      );
+      border: 2px solid white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.3s;
+    }
+
+    .hero-button:hover {
+      transform: translateY(-5px) scale(1.03);
+    }
+
+    /* ================= ABOUT ================= */
+
+    section {
+      padding: 120px 7%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(4rem, 12vw, 10rem);
+      line-height: 0.85;
+      text-transform: uppercase;
+      font-weight: 900;
+
+      background: linear-gradient(
+        180deg,
+        #646973,
+        #bbccd7
+      );
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+
+      margin-bottom: 60px;
+    }
+
+    .about {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
-      padding: 12px 17px;
-      border: 1px solid var(--line);
-      border-radius: 5px;
-      font-size: .85rem;
-      font-weight: 700;
-      transition: background .2s, border-color .2s;
     }
 
-    .btn-primary {
-      background: #1d4e89;
-      border-color: #1d4e89;
-      color: #fff;
+    .about-text {
+      max-width: 750px;
+      text-align: center;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      line-height: 1.8;
+      color: #c4ced5;
     }
 
-    .btn-primary:hover {
-      background: #163b69;
-    }
-
-    .btn-secondary {
-      background: var(--panel);
-      color: var(--text);
-    }
-
-    .btn-secondary:hover {
-      border-color: var(--accent);
-    }
-
-    .hero-note {
-      margin-top: 35px;
-      color: var(--muted);
-      font-size: .8rem;
-    }
-
-    .hero-note span {
-      color: var(--accent);
-      margin-right: 7px;
-    }
-
-    .hero-card {
-      position: relative;
-      min-height: 350px;
-      padding: 25px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-
-    .card-top {
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted);
-      font-size: .7rem;
-    }
-
-    .monogram {
-      height: 210px;
-      display: grid;
-      place-items: center;
-    }
-
-    .monogram span {
-      color: var(--accent);
-      font-size: 8rem;
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -.1em;
-    }
-
-    .card-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 10px;
-      padding-top: 17px;
-      border-top: 1px solid var(--line);
-    }
-
-    .card-bottom strong {
-      display: block;
-      font-size: .95rem;
-    }
-
-    .card-bottom small {
-      color: var(--muted);
-      font-size: .75rem;
-    }
-
-    .card-index {
-      color: var(--accent);
-      font-size: .7rem;
-    }
-
-    /* Information strip */
-
-    .ticker {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-      background: var(--panel);
-    }
-
-    .ticker-inner {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px 25px;
-      padding: 17px 0;
-      color: var(--muted);
-      font-size: .77rem;
-    }
-
-    .ticker span::before {
-      content: "•";
-      color: var(--accent);
-      margin-right: 9px;
-    }
-
-    /* Common section styles */
-
-    .content-section {
-      padding: 90px 0;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 30px;
-      margin-bottom: 38px;
-    }
-
-    .section-heading h2 {
-      margin-top: 12px;
-      font-size: clamp(2.2rem, 4.5vw, 3.5rem);
-      line-height: 1.15;
-      letter-spacing: -.055em;
-    }
-
-    .section-heading h2 span {
-      color: var(--accent);
-    }
-
-    .section-heading p {
-      max-width: 420px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* About */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 55px;
-    }
-
-    .about-aside {
-      padding: 27px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .aside-number {
-      margin-top: 13px;
-      font-size: 2.5rem;
-      color: var(--accent);
-      font-weight: 800;
-    }
-
-    .about-aside p, .about-text p {
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .about-text p {
-      margin-bottom: 17px;
-    }
-
-    .about-text strong {
-      color: var(--text);
-    }
-
-    .stats {
+    .info-grid {
+      margin-top: 70px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
-      margin-top: 30px;
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
     }
 
-    .stat {
-      border-top: 1px solid var(--line);
-      padding-top: 14px;
+    .info-card {
+      border: 1px solid rgba(215, 226, 234, 0.2);
+      border-radius: 25px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      transition: 0.3s;
     }
 
-    .stat strong {
-      display: block;
-      color: var(--accent);
+    .info-card:hover {
+      transform: translateY(-8px);
+      border-color: #d7e2ea;
+    }
+
+    .info-card h3 {
       font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      opacity: 0.5;
+      margin-bottom: 10px;
     }
 
-    .stat span {
-      color: var(--muted);
-      font-size: .73rem;
+    .info-card p {
+      font-size: 1.4rem;
+      font-weight: 500;
     }
 
-    /* Skills */
+    /* ================= SKILLS ================= */
 
     .skills-section {
-      background: var(--panel-alt);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      background: white;
+      color: #0c0c0c;
+      border-radius: 60px 60px 0 0;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+    .skills-section .section-title {
+      background: none;
+      -webkit-text-fill-color: #0c0c0c;
+      color: #0c0c0c;
     }
 
-    .skill-card {
-      padding: 24px;
-      min-height: 185px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      transition: border-color .2s;
+    .skills-container {
+      max-width: 1100px;
+      margin: auto;
     }
 
-    .skill-card:hover {
-      border-color: var(--accent);
-    }
-
-    .skill-top {
+    .skill {
+      border-top: 1px solid rgba(12, 12, 12, 0.2);
+      padding: 35px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 23px;
+      transition: 0.3s;
     }
 
-    .skill-icon {
-      display: grid;
-      place-items: center;
-      min-width: 40px;
-      height: 40px;
-      padding: 0 5px;
-      border-radius: 6px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: .82rem;
-      font-weight: 700;
+    .skill:last-child {
+      border-bottom: 1px solid rgba(12, 12, 12, 0.2);
     }
 
-    .skill-num {
-      color: var(--muted);
-      font-size: .7rem;
+    .skill:hover {
+      padding-left: 20px;
     }
 
-    .skill-card h3 {
-      margin-bottom: 7px;
-      font-size: 1rem;
+    .skill-number {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      line-height: 1;
     }
 
-    .skill-card p {
-      color: var(--muted);
-      font-size: .82rem;
+    .skill-name {
+      font-size: clamp(1.5rem, 3vw, 3rem);
+      text-transform: uppercase;
+      font-weight: 600;
     }
 
-    .learning-note {
-      margin-top: 20px;
-      color: var(--muted);
-      font-size: .78rem;
-    }
-
-    .learning-note span {
-      color: var(--accent);
-    }
-
-    /* Education */
-
-    .education-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 25px;
-      padding: 30px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-    }
-
-    .education-card h3 {
-      margin: 10px 0 6px;
-      font-size: 1.3rem;
-    }
-
-    .education-card p {
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .education-badge {
-      align-self: start;
-      padding: 7px 10px;
-      border-radius: 5px;
-      background: var(--accent-light);
-      color: var(--accent);
-      font-size: .72rem;
-    }
-
-    .edu-footer, .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .pill {
-      padding: 5px 9px;
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      color: var(--muted);
-      font-size: .72rem;
-    }
-
-    /* Projects */
+    /* ================= PROJECTS ================= */
 
     .projects-section {
-      background: var(--panel-alt);
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+      background: #0c0c0c;
+      border-radius: 60px 60px 0 0;
+      margin-top: -50px;
+      position: relative;
+      z-index: 5;
     }
 
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 18px;
+    .projects-container {
+      max-width: 1200px;
+      margin: auto;
     }
 
     .project-card {
-      display: flex;
-      flex-direction: column;
-      min-height: 275px;
-      padding: 27px;
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      box-shadow: var(--shadow);
-      transition: border-color .2s;
+      border: 2px solid #d7e2ea;
+      border-radius: 45px;
+      padding: 35px;
+      margin-bottom: 35px;
+      background: #0c0c0c;
+      transition: 0.4s;
     }
 
     .project-card:hover {
-      border-color: var(--accent);
+      transform: translateY(-10px);
+      background: #111;
     }
 
     .project-top {
       display: flex;
-      justify-content: space-between;
-      color: var(--accent);
-      font-size: .75rem;
-    }
-
-    .project-card h3 {
-      margin: 25px 0 9px;
-      font-size: 1.2rem;
-      letter-spacing: -.025em;
-    }
-
-    .project-card p {
-      margin-bottom: 18px;
-      color: var(--muted);
-      font-size: .85rem;
-    }
-
-    .project-card .pill-row {
-      margin-top: auto;
-    }
-
-    .project-card .btn {
-      align-self: flex-start;
-      margin-top: 22px;
-    }
-
-    /* Contact */
-
-    .contact-panel {
-      padding: clamp(28px, 6vw, 60px);
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      box-shadow: var(--shadow);
-    }
-
-    .contact-panel h2 {
-      margin: 15px 0 18px;
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: 1.1;
-      letter-spacing: -.065em;
-    }
-
-    .contact-panel p {
-      max-width: 600px;
-      color: var(--muted);
-      font-size: .92rem;
-    }
-
-    .contact-bottom {
-      display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 20px;
+      gap: 25px;
+      margin-bottom: 35px;
+    }
+
+    .project-number {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .project-info {
+      flex: 1;
+    }
+
+    .project-info span {
+      color: #8997a1;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .project-info h2 {
+      font-size: clamp(1.8rem, 4vw, 3.5rem);
+      text-transform: uppercase;
+    }
+
+    .github-button {
+      border: 2px solid #d7e2ea;
+      padding: 12px 22px;
+      border-radius: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: 0.3s;
+      white-space: nowrap;
+    }
+
+    .github-button:hover {
+      background: #d7e2ea;
+      color: #0c0c0c;
+    }
+
+    .project-description {
+      color: #aebbc5;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .project-tech {
+      display: flex;
       flex-wrap: wrap;
-      margin-top: 30px;
-      padding-top: 23px;
-      border-top: 1px solid var(--line);
+      gap: 10px;
     }
 
-    .contact-hint {
-      color: var(--muted);
-      font-size: .82rem;
+    .tech {
+      padding: 7px 15px;
+      border: 1px solid rgba(215, 226, 234, 0.3);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      text-transform: uppercase;
     }
 
-    .contact-hint a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 3px;
+    /* ================= CONTACT ================= */
+
+    .contact {
+      text-align: center;
+      min-height: 70vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
-    /* Footer */
+    .contact h2 {
+      font-size: clamp(3rem, 9vw, 9rem);
+      text-transform: uppercase;
+      font-weight: 900;
+      line-height: 0.9;
+    }
+
+    .contact p {
+      max-width: 600px;
+      margin: 30px auto;
+      color: #aebbc5;
+      font-size: 1.2rem;
+    }
+
+    /* ================= FOOTER ================= */
 
     footer {
-      padding: 25px 0;
-      background: var(--panel);
-      border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: .77rem;
-    }
-
-    .footer-inner {
+      padding: 30px 7%;
+      border-top: 1px solid rgba(215, 226, 234, 0.15);
       display: flex;
       justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+      color: #8997a1;
     }
 
-    .back-top {
-      color: var(--accent);
+    /* ================= ANIMATION ================= */
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--accent);
-      outline-offset: 3px;
-    }
+    /* ================= MOBILE ================= */
 
-    /* Responsive design */
-
-    @media (max-width: 850px) {
-      .hero-grid, .about-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
+    @media (max-width: 700px) {
+      nav {
+        padding: 20px;
       }
 
-      .hero {
-        padding: 75px 0;
-      }
-
-      .hero-card {
-        min-height: 320px;
-      }
-
-      .section-heading {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 13px;
+      .logo {
+        font-size: 1.1rem;
       }
 
       .nav-links {
-        gap: 13px;
-      }
-
-      .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 620px) {
-      .container {
-        width: calc(100% - 32px);
-      }
-
-      .nav {
-        min-height: 68px;
-      }
-
-      .menu-toggle {
-        display: inline-block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        padding: 15px 20px 22px;
-        background: var(--bg);
-        border-bottom: 1px solid var(--line);
-        flex-direction: column;
-        align-items: stretch;
-        gap: 5px;
-      }
-
-      .nav-links.open {
-        display: flex;
+        gap: 12px;
       }
 
       .nav-links a {
-        padding: 9px 0;
-      }
-
-      .nav-cta {
-        text-align: center;
-      }
-
-      .theme-toggle {
-        padding: 8px;
-        font-size: .73rem;
+        font-size: 0.7rem;
       }
 
       .hero {
-        padding: 60px 0;
+        padding: 120px 20px 40px;
       }
 
-      .hero h1 {
-        font-size: clamp(3.2rem, 15vw, 5rem);
+      .hero-title {
+        letter-spacing: -3px;
       }
 
-      .ticker-inner {
-        justify-content: flex-start;
+      .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
       }
 
-      .content-section {
-        padding: 70px 0;
+      section {
+        padding: 90px 20px;
       }
 
-      .skills-grid, .projects-grid {
+      .info-grid {
         grid-template-columns: 1fr;
       }
 
-      .education-card {
-        grid-template-columns: 1fr;
+      .skills-section,
+      .projects-section {
+        border-radius: 35px 35px 0 0;
       }
 
-      .education-badge {
-        grid-row: 1;
-        justify-self: start;
+      .skill {
+        gap: 20px;
       }
 
-      .stats {
-        gap: 9px;
+      .skill-number {
+        font-size: 3.5rem;
       }
 
-      .stat span {
-        font-size: .68rem;
+      .skill-name {
+        font-size: 1.5rem;
       }
 
-      .hero-card {
-        min-height: 290px;
+      .project-card {
+        padding: 22px;
+        border-radius: 30px;
       }
 
-      .monogram {
-        height: 170px;
+      .project-top {
+        flex-wrap: wrap;
       }
 
-      .monogram span {
-        font-size: 6.5rem;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
+      .project-number {
+        font-size: 3.5rem;
       }
 
-      *, *::before, *::after {
-        transition-duration: .01ms !important;
+      .github-button {
+        width: 100%;
+        text-align: center;
+      }
+
+      footer {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
       }
     }
   </style>
 </head>
 
-<body data-theme="light">
+<body>
 
-  <!-- Navigation -->
-  <header class="site-header">
-    <nav class="nav container" aria-label="Main navigation">
-      <a class="brand" href="#home">
-        <span class="brand-mark">A.</span>
-        <span>ABHINAV<span class="brand-dot">.</span></span>
+  <!-- ================= NAVBAR ================= -->
+
+  <nav>
+    <div class="logo">ABHINAV.</div>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+
+  <!-- ================= HERO ================= -->
+
+  <header class="hero">
+
+    <div>
+      <p class="small-label">
+        B.Tech Student • Developer • Creator
+      </p>
+    </div>
+
+    <h1 class="hero-title">
+      I'm Abhinav
+    </h1>
+
+    <div class="hero-bottom">
+
+      <p class="hero-description">
+        A second-year B.Tech student passionate about programming,
+        web development and building useful digital projects.
+      </p>
+
+      <a
+        href="#projects"
+        class="hero-button"
+      >
+        Explore My Work
       </a>
 
-      <div class="nav-tools">
-        <button class="theme-toggle" id="themeToggle" type="button">
-          <span id="themeIcon">☾</span>
-          <span id="themeLabel">Dark mode</span>
-        </button>
-        <button class="menu-toggle" id="menuToggle" type="button"
-          aria-expanded="false" aria-controls="navLinks">Menu ☰</button>
-      </div>
+    </div>
 
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact" class="nav-cta">Contact ↗</a>
-      </div>
-    </nav>
   </header>
 
-  <main>
-    <!-- Hero -->
-    <section class="hero container" id="home">
-      <div class="hero-grid">
-        <div>
-          <div class="eyebrow">B.Tech Student · Jaipur, India</div>
-          <h1>Learning.<br><span>Building.</span></h1>
 
-          <p class="hero-copy">
-            Hello, I am Abhinav, a B.Tech student at JECRC University.
-            I am developing my programming and web development skills
-            through academic learning, practical exercises, and projects.
-          </p>
+  <!-- ================= ABOUT ================= -->
 
-          <div class="hero-actions">
-            <a href="#projects" class="btn btn-primary">View Projects ↓</a>
-            <a href="#about" class="btn btn-secondary">About Me →</a>
-          </div>
+  <section id="about" class="about">
 
-          <div class="hero-note">
-            <span>●</span> Focused on learning through practical work.
-          </div>
-        </div>
+    <h2 class="section-title">
+      About Me
+    </h2>
 
-        <div class="hero-card">
-          <div class="card-top mono">
-            <span>STUDENT PORTFOLIO</span>
-            <span>2026</span>
-          </div>
+    <p class="about-text">
+      I'm Abhinav, a B.Tech student at JECRC University.
+      Currently in my second year, I'm developing my skills in
+      programming and web development. I enjoy experimenting with
+      different technologies, creating projects and continuously
+      improving my coding abilities.
+    </p>
 
-          <div class="monogram"><span>A.</span></div>
+    <div class="info-grid">
 
-          <div class="card-bottom">
-            <div>
-              <strong>Abhinav</strong>
-              <small>B.Tech · JECRC University</small>
-            </div>
-            <span class="card-index mono">PORTFOLIO</span>
-          </div>
-        </div>
+      <div class="info-card">
+        <h3>Name</h3>
+        <p>Abhinav</p>
       </div>
-    </section>
 
-    <div class="ticker">
-      <div class="ticker-inner container">
-        <span>Programming</span>
-        <span>Web Development</span>
-        <span>Software Projects</span>
-        <span>Technology</span>
+      <div class="info-card">
+        <h3>University</h3>
+        <p>JECRC University</p>
       </div>
+
+      <div class="info-card">
+        <h3>Degree</h3>
+        <p>B.Tech</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Year</h3>
+        <p>2nd Year</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Focus</h3>
+        <p>Development</p>
+      </div>
+
+      <div class="info-card">
+        <h3>Goal</h3>
+        <p>All Opportunities</p>
+      </div>
+
     </div>
 
-    <!-- About -->
-    <section class="content-section container" id="about">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">01 / About Me</div>
-          <h2>Building a foundation<br><span>in technology.</span></h2>
-        </div>
-        <p>
-          An overview of my academic background, technical interests,
-          and ongoing efforts to improve my practical skills.
-        </p>
+  </section>
+
+
+  <!-- ================= SKILLS ================= -->
+
+  <section id="skills" class="skills-section">
+
+    <h2 class="section-title">
+      Skills
+    </h2>
+
+    <div class="skills-container">
+
+      <div class="skill">
+        <div class="skill-number">01</div>
+        <div class="skill-name">C</div>
       </div>
 
-      <div class="about-grid">
-        <div class="about-aside">
-          <div class="eyebrow">Current Chapter</div>
-          <div class="aside-number">B.Tech</div>
-          <p>
-            Learning programming fundamentals and applying classroom
-            concepts through practice and project work.
-          </p>
-        </div>
-
-        <div class="about-text">
-          <p>
-            I am pursuing my <strong>B.Tech at JECRC University</strong>.
-            My current focus is on strengthening programming fundamentals
-            and understanding how to build clear, responsive web interfaces.
-          </p>
-
-          <p>
-            I am interested in how software and emerging technologies can
-            be applied to practical problems and developed into useful
-            digital products.
-          </p>
-
-          <p>
-            As a student, I aim to keep learning, improve my problem-solving
-            abilities, and gain practical experience by working on projects.
-          </p>
-
-          <div class="stats">
-            <div class="stat">
-              <strong>Programming</strong>
-              <span>Core learning area</span>
-            </div>
-            <div class="stat">
-              <strong>Web</strong>
-              <span>Development interest</span>
-            </div>
-            <div class="stat">
-              <strong>Ongoing</strong>
-              <span>Skill development</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills -->
-    <section class="content-section skills-section" id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">02 / Technical Skills</div>
-            <h2>Skills and<br>learning areas.</h2>
-          </div>
-          <p>
-            These areas represent my current learning toolkit.
-            I am continuing to develop my understanding through coursework
-            and practical exercises.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">C</span>
-              <span class="skill-num mono">01 / LANG</span>
-            </div>
-            <h3>C Programming</h3>
-            <p>Learning core programming concepts, logic, and problem-solving fundamentals.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">C++</span>
-              <span class="skill-num mono">02 / LANG</span>
-            </div>
-            <h3>C++</h3>
-            <p>Developing familiarity with programming structures and object-oriented concepts.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">Py</span>
-              <span class="skill-num mono">03 / LANG</span>
-            </div>
-            <h3>Python</h3>
-            <p>Exploring general-purpose programming and writing readable code.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">&lt;/&gt;</span>
-              <span class="skill-num mono">04 / WEB</span>
-            </div>
-            <h3>HTML</h3>
-            <p>Structuring web pages using clear and semantic markup.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">#</span>
-              <span class="skill-num mono">05 / WEB</span>
-            </div>
-            <h3>CSS</h3>
-            <p>Learning responsive layouts, visual styling, and interface design.</p>
-          </article>
-
-          <article class="skill-card">
-            <div class="skill-top">
-              <span class="skill-icon">Git</span>
-              <span class="skill-num mono">06 / TOOLS</span>
-            </div>
-            <h3>GitHub</h3>
-            <p>Using code repositories to organise, access, and share project work.</p>
-          </article>
-        </div>
-
-        <p class="learning-note">
-          <span>NOTE //</span> This section describes learning areas and
-          does not claim professional mastery.
-        </p>
-      </div>
-    </section>
-
-    <!-- Education -->
-    <section class="content-section container" id="education">
-      <div class="section-heading">
-        <div>
-          <div class="eyebrow">03 / Education</div>
-          <h2>Academic<br>background.</h2>
-        </div>
-        <p>My current academic programme and institution.</p>
+      <div class="skill">
+        <div class="skill-number">02</div>
+        <div class="skill-name">C++</div>
       </div>
 
-      <article class="education-card">
-        <div>
-          <div class="eyebrow">Undergraduate Studies</div>
-          <h3>Bachelor of Technology (B.Tech)</h3>
-          <p>JECRC University · Jaipur, Rajasthan, India</p>
-
-          <div class="edu-footer">
-            <span class="pill">Undergraduate</span>
-            <span class="pill">Programming</span>
-            <span class="pill">Technology</span>
-          </div>
-        </div>
-
-        <span class="education-badge">CURRENTLY STUDYING</span>
-      </article>
-    </section>
-
-    <!-- Projects -->
-    <section class="content-section projects-section" id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="eyebrow">04 / Selected Work</div>
-            <h2>Academic and<br><span>personal projects.</span></h2>
-          </div>
-          <p>
-            A selection of project repositories. Open the GitHub links
-            to review the source code and available implementation details.
-          </p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-top mono">
-              <span>PROJECT 01</span><span>↗</span>
-            </div>
-            <h3>Network</h3>
-            <p>
-              A programming project repository. Visit GitHub to review
-              its source files and available documentation.
-            </p>
-            <div class="pill-row">
-              <span class="pill">GitHub</span>
-              <span class="pill">Source Code</span>
-            </div>
-            <a class="btn btn-secondary"
-               href="https://github.com/abhinavnnl29-design/network"
-               target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top mono">
-              <span>PROJECT 02</span><span>↗</span>
-            </div>
-            <h3>CityPlus</h3>
-            <p>
-              A project repository. Refer to its source code and
-              repository documentation for implementation details.
-            </p>
-            <div class="pill-row">
-              <span class="pill">GitHub</span>
-              <span class="pill">Project Repository</span>
-            </div>
-            <a class="btn btn-secondary"
-               href="https://github.com/abhinavnnl29-design/cityplus"
-               target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top mono">
-              <span>PROJECT 03</span><span>↗</span>
-            </div>
-            <h3>Code Correction</h3>
-            <p>
-              A programming-related project. Visit the repository
-              to inspect the available implementation.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Programming</span>
-              <span class="pill">GitHub</span>
-            </div>
-            <a class="btn btn-secondary"
-               href="https://github.com/abhinavnnl29-design/Code_correction"
-               target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top mono">
-              <span>PROJECT 04</span><span>↗</span>
-            </div>
-            <h3>Factorial Code</h3>
-            <p>
-              A programming exercise focused on factorial calculation.
-              Review the repository for its source code.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Programming Fundamentals</span>
-            </div>
-            <a class="btn btn-secondary"
-               href="https://github.com/abhinavnnl29-design/Factorial-code"
-               target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
-            </a>
-          </article>
-
-          <article class="project-card">
-            <div class="project-top mono">
-              <span>PROJECT 05</span><span>↗</span>
-            </div>
-            <h3>Quiz</h3>
-            <p>
-              A quiz-related project repository. Visit GitHub to
-              review the code and available project files.
-            </p>
-            <div class="pill-row">
-              <span class="pill">Quiz Project</span>
-              <span class="pill">GitHub</span>
-            </div>
-            <a class="btn btn-secondary"
-               href="https://github.com/abhinavnnl29-design/Quiz"
-               target="_blank" rel="noopener noreferrer">
-              View on GitHub ↗
-            </a>
-          </article>
-        </div>
+      <div class="skill">
+        <div class="skill-number">03</div>
+        <div class="skill-name">Python</div>
       </div>
-    </section>
 
-    <!-- Contact -->
-    <section class="content-section container" id="contact">
-      <div class="contact-panel">
-        <div class="eyebrow">05 / Contact</div>
-        <h2>Let's connect<br>professionally.</h2>
-        <p>
-          For academic discussions, project feedback, or technology-related
-          collaboration, feel free to contact me by email.
-        </p>
+      <div class="skill">
+        <div class="skill-number">04</div>
+        <div class="skill-name">HTML</div>
+      </div>
 
-        <div class="contact-bottom">
-          <div class="contact-hint">
-            Email:
-            <a href="mailto:abhinavnnl29@gmail.com">
-              abhinavnnl29@gmail.com
-            </a>
+      <div class="skill">
+        <div class="skill-number">05</div>
+        <div class="skill-name">CSS</div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ================= PROJECTS ================= -->
+
+  <section id="projects" class="projects-section">
+
+    <h2 class="section-title">
+      Projects
+    </h2>
+
+    <div class="projects-container">
+
+
+      <!-- PROJECT 01 -->
+
+      <article class="project-card">
+
+        <div class="project-top">
+
+          <div class="project-number">
+            01
           </div>
 
-          <a class="btn btn-primary"
-             href="mailto:abhinavnnl29@gmail.com?subject=Portfolio%20Enquiry">
-            Send Me an Email →
+          <div class="project-info">
+
+            <span>GitHub Project</span>
+
+            <h2>Network</h2>
+
+          </div>
+
+          <a
+            href="https://github.com/abhinavnnl29-design/network"
+            target="_blank"
+            class="github-button"
+          >
+            GitHub
           </a>
-        </div>
-      </div>
-    </section>
-  </main>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container footer-inner">
-      <span>© <span id="year"></span> Abhinav. Student portfolio.</span>
-      <a class="back-top mono" href="#home">BACK TO TOP ↑</a>
+        </div>
+
+        <p class="project-description">
+          A programming project focused on networking concepts
+          and implementation.
+        </p>
+
+        <div class="project-tech">
+          <span class="tech">Programming</span>
+          <span class="tech">GitHub</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 02 -->
+
+      <article class="project-card">
+
+        <div class="project-top">
+
+          <div class="project-number">
+            02
+          </div>
+
+          <div class="project-info">
+
+            <span>GitHub Project</span>
+
+            <h2>CityPlus</h2>
+
+          </div>
+
+          <a
+            href="https://github.com/abhinavnnl29-design/cityplus"
+            target="_blank"
+            class="github-button"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+        <p class="project-description">
+          A project created to explore and develop a practical
+          software solution.
+        </p>
+
+        <div class="project-tech">
+          <span class="tech">Programming</span>
+          <span class="tech">GitHub</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 03 -->
+
+      <article class="project-card">
+
+        <div class="project-top">
+
+          <div class="project-number">
+            03
+          </div>
+
+          <div class="project-info">
+
+            <span>GitHub Project</span>
+
+            <h2>Code Correction</h2>
+
+          </div>
+
+          <a
+            href="https://github.com/abhinavnnl29-design/Code_correction"
+            target="_blank"
+            class="github-button"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+        <p class="project-description">
+          A coding project focused on identifying and correcting
+          programming errors.
+        </p>
+
+        <div class="project-tech">
+          <span class="tech">C</span>
+          <span class="tech">Programming</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 04 -->
+
+      <article class="project-card">
+
+        <div class="project-top">
+
+          <div class="project-number">
+            04
+          </div>
+
+          <div class="project-info">
+
+            <span>GitHub Project</span>
+
+            <h2>Factorial Code</h2>
+
+          </div>
+
+          <a
+            href="https://github.com/abhinavnnl29-design/Factorial-code"
+            target="_blank"
+            class="github-button"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+        <p class="project-description">
+          A simple programming project demonstrating factorial
+          calculation and fundamental programming logic.
+        </p>
+
+        <div class="project-tech">
+          <span class="tech">C</span>
+          <span class="tech">Logic</span>
+        </div>
+
+      </article>
+
+
+      <!-- PROJECT 05 -->
+
+      <article class="project-card">
+
+        <div class="project-top">
+
+          <div class="project-number">
+            05
+          </div>
+
+          <div class="project-info">
+
+            <span>GitHub Project</span>
+
+            <h2>Quiz</h2>
+
+          </div>
+
+          <a
+            href="https://github.com/abhinavnnl29-design/Quiz"
+            target="_blank"
+            class="github-button"
+          >
+            GitHub
+          </a>
+
+        </div>
+
+        <p class="project-description">
+          An interactive quiz project created to practice
+          programming concepts and logical implementation.
+        </p>
+
+        <div class="project-tech">
+          <span class="tech">Programming</span>
+          <span class="tech">Quiz</span>
+        </div>
+
+      </article>
+
     </div>
+
+  </section>
+
+
+  <!-- ================= CONTACT ================= -->
+
+  <section id="contact" class="contact">
+
+    <h2>
+      Let's Build
+      <br />
+      Something.
+    </h2>
+
+    <p>
+      I'm always interested in learning new technologies,
+      building projects and exploring new opportunities.
+    </p>
+
+    <a
+      href="https://github.com/abhinavnnl29-design"
+      target="_blank"
+      class="hero-button"
+    >
+      Visit My GitHub
+    </a>
+
+  </section>
+
+
+  <!-- ================= FOOTER ================= -->
+
+  <footer>
+
+    <p>
+      © 2026 Abhinav
+    </p>
+
+    <p>
+      JECRC University • B.Tech
+    </p>
+
   </footer>
 
+
+  <!-- ================= JAVASCRIPT ================= -->
+
   <script>
-    // Update copyright year automatically.
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
 
-    // Light and dark theme toggle.
-    const themeToggle = document.getElementById("themeToggle");
-    const themeLabel = document.getElementById("themeLabel");
-    const themeIcon = document.getElementById("themeIcon");
+    // Reveal cards when they enter the screen
 
-    function applyTheme(theme) {
-      document.body.dataset.theme = theme;
+    const elements = document.querySelectorAll(
+      ".info-card, .skill, .project-card"
+    );
 
-      const isLight = theme === "light";
-      themeLabel.textContent = isLight ? "Dark mode" : "Light mode";
-      themeIcon.textContent = isLight ? "☾" : "☼";
+    const observer = new IntersectionObserver(
+      (entries) => {
 
-      try {
-        localStorage.setItem("abhinav-portfolio-theme", theme);
-      } catch (error) {
-        // Theme still works if browser storage is unavailable.
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.15
       }
-    }
+    );
 
-    let initialTheme = "light";
 
-    try {
-      initialTheme =
-        localStorage.getItem("abhinav-portfolio-theme") || "light";
-    } catch (error) {}
+    elements.forEach((element) => {
 
-    applyTheme(initialTheme === "dark" ? "dark" : "light");
+      element.style.opacity = "0";
+      element.style.transform = "translateY(40px)";
+      element.style.transition = "opacity 0.7s ease, transform 0.7s ease";
 
-    themeToggle.addEventListener("click", function () {
-      const nextTheme =
-        document.body.dataset.theme === "dark" ? "light" : "dark";
+      observer.observe(element);
 
-      applyTheme(nextTheme);
     });
 
-    // Mobile navigation menu.
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("open");
+    // Navbar background on scroll
 
-      menuToggle.setAttribute("aria-expanded", String(isOpen));
-      menuToggle.textContent = isOpen ? "Close ×" : "Menu ☰";
+    window.addEventListener("scroll", () => {
+
+      const nav = document.querySelector("nav");
+
+      if (window.scrollY > 50) {
+
+        nav.style.background = "rgba(12,12,12,0.95)";
+
+      } else {
+
+        nav.style.background = "rgba(12,12,12,0.75)";
+
+      }
+
     });
 
-    // Close mobile navigation after selecting a section.
-    navLinks.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("open");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "Menu ☰";
-      });
-    });
   </script>
 
 </body>
